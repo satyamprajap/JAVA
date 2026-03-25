@@ -1,0 +1,15 @@
+//Write a Java program to create a class Student with a default constructor and a parameterized
+constructor. Instantiate objects using both.
+class Student {
+String name; int roll;
+Student() { name = "Unknown"; roll = 0; }
+Student(String n, int r) { name = n; roll = r; }
+void display() { System.out.println("Name: "+name+" Roll: "+roll); }
+}
+public class StudentDemo {
+public static void main(String[] args) {
+Student s1 = new Student();
+Student s2 = new Student("Alice", 101);
+s1.display(); s2.display();
+}
+}
