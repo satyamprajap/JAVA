@@ -1,0 +1,63 @@
+undo / redo feature using stack
+
+import java.util.Stack;
+
+class UndoRedoDemo {
+
+    Stack<String> undoStack = new Stack<>();
+    Stack<String> redoStack = new Stack<>();
+
+    // Perform Action
+    void performAction(String action) {
+        undoStack.push(action);
+        redoStack.clear(); // clear redo history
+        System.out.println("Performed: " + action);
+    }
+
+    // Undo Action
+    void undo() {
+        if (!undoStack.isEmpty()) {
+            String action = undoStack.pop();
+            redoStack.push(action);
+            System.out.println("Undo: " + action);
+        } else {
+            System.out.println("Nothing to undo");
+        }
+    }
+
+    // Redo Action
+    void redo() {
+        if (!redoStack.isEmpty()) {
+            String action = redoStack.pop();
+            undoStack.push(action);
+            System.out.println("Redo: " + action);
+        } else {
+            System.out.println("Nothing to redo");
+        }
+    }
+
+    // Display current state
+    void display() {
+        System.out.println("Undo Stack: " + undoStack);
+        System.out.println("Redo Stack: " + redoStack);
+    }
+
+    public static void main(String[] args) {
+        UndoRedoDemo obj = new UndoRedoDemo();
+
+        obj.performAction("Type A");
+        obj.performAction("Type B");
+        obj.performAction("Type C");
+
+        obj.display();
+
+        obj.undo();
+        obj.undo();
+
+        obj.display();
+
+        obj.redo();
+
+        obj.display();
+    }
+}
