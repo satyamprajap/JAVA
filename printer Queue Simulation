@@ -1,0 +1,74 @@
+// printer Queue Simulation
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+class PrintJob {
+    String documentName;
+
+    // Constructor
+    PrintJob(String name) {
+        this.documentName = name;
+    }
+}
+
+public class PrinterQueueSimulation {
+    public static void main(String[] args) {
+
+        Queue<PrintJob> queue = new LinkedList<>();
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("\n--- Printer Queue Menu ---");
+            System.out.println("1. Add Print Job");
+            System.out.println("2. Print Job");
+            System.out.println("3. View Queue");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+            sc.nextLine(); // consume newline
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter document name: ");
+                    String name = sc.nextLine();
+                    queue.add(new PrintJob(name));
+                    System.out.println("Print job added!");
+                    break;
+
+                case 2:
+                    if (queue.isEmpty()) {
+                        System.out.println("No jobs in queue!");
+                    } else {
+                        PrintJob job = queue.poll();
+                        System.out.println("Printing: " + job.documentName);
+                    }
+                    break;
+
+                case 3:
+                    if (queue.isEmpty()) {
+                        System.out.println("Queue is empty!");
+                    } else {
+                        System.out.println("Print Queue:");
+                        for (PrintJob job : queue) {
+                            System.out.println("- " + job.documentName);
+                        }
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 4);
+
+        sc.close();
+    }
+}
