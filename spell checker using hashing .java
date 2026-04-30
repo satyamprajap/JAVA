@@ -1,4 +1,4 @@
-//spell checker using hashing
+
 import java.util.*;
 
 public class SpellChecker {
