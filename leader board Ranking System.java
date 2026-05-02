@@ -1,4 +1,4 @@
-//leader board Ranking System  
+//leader board Ranking System
 import java.util.Scanner;
 
 class Player {
