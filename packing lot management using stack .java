@@ -7,7 +7,7 @@ class PackingLotStack {
     int stack[] = new int[MAX];
     int top = -1;
 
-    // Push operation (Packing)
+    //Push operation (Packing)
     void push(int lot) {
         if (top == MAX - 1) {
             System.out.println("Stack Overflow! Cannot add more lots.");
