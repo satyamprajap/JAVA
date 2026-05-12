@@ -43,7 +43,7 @@ public class BrowserHistoryManager {
         }
     }
 
-    // Show current page
+    // Show current 
     public void current() {
         System.out.println("Current Page: " + currentPage);
     }
