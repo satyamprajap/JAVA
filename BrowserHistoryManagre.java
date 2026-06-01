@@ -13,7 +13,7 @@ public class BrowserHistoryManager {
         currentPage = homepage;
     }
 
-    // Visit a new page
+    // Visit a new pag
     public void visit(String url) {
         backStack.push(currentPage);
         currentPage = url;
