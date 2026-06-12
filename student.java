@@ -95,7 +95,6 @@ public class StudentManagementSystem {
                             break;
                         }
                     }
-
                     if (!deleted) {
                         System.out.println("Student not found.");
                     }
@@ -104,7 +103,6 @@ public class StudentManagementSystem {
                 case 5:
                     System.out.println("Exiting...");
                     return;
-
                 default:
                     System.out.println("Invalid choice!");
             }
